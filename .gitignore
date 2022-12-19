@@ -1,0 +1,12 @@
+# Distribution / packaging
+build/
+*.pyc
+.idea
+venv/
+
+# google
+token.pickle
+calcreds.json
+
+*.state.json
+docker-compose.override.yml

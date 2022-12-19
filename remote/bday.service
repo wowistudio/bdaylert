@@ -1,0 +1,12 @@
+[Unit]
+Description=Bdaylert
+
+[Service]
+Restart=always
+RestartSec=3s
+User=root
+WorkingDirectory=/root/bday
+ExecStart=/root/bday/remote/start.sh
+
+[Install]
+WantedBy=multi-user.target

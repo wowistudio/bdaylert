@@ -1,0 +1,1 @@
+PS1='($SERVICE_NAME) $(basename $(dirname "$PWD"))/$(basename "$PWD") $ '

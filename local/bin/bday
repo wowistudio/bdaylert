@@ -1,0 +1,20 @@
+#!/bin/bash
+
+WATCH=0
+
+# Rewrite arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -w|--watch)
+      WATCH=1
+      shift # past argument
+      shift # past value
+      ;;
+  esac
+done
+
+if [[ "$WATCH" -eq 1 ]]; then
+  find $CODE_SRC_FOLDER -name "*.py" | grep -v pycache | entr -r python $CODE_SRC_FOLDER/bday/main.py
+else
+  python $CODE_SRC_FOLDER/bday/main.py
+fi

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./local/Dockerfile
+    environment:
+      GCAL_CREDS_FILE: /bday/code/src/bday/calcreds.json
+      GCAL_TOKEN_PICKLE_FILE: /bday/code/src/bday/token.pickle
+    command: sleep infinity
+    volumes:
+      - pip-cache:/bday/.cache/pip # for pip cache
+      - ./:/bday/code:rw # the entire repo
+      - ./local/entrypoints/:/bday/entrypoints
+    stdin_open: true
+    tty: true
+
+volumes:
+  pip-cache:
