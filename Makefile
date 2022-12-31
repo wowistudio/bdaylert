@@ -2,11 +2,15 @@ APP_NAME=bender
 ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 define help_msg
-Usage:
-  make build:   Build services
-  make shell:   Get a bender shell
-  make format:  Lint python code
-  make lambda:  Trigger lambda function
+  ## LOCAL ##
+  make build:   	Build services
+  make shell:   	Get a container shell
+  make format:  	Lint python code
+
+  ## REMOTE ##
+  make upload:  	Deploy code to server
+  make remote-stop	Stop remote server
+  make remote-start Start remote server
 
 endef
 export help_msg
@@ -41,3 +45,16 @@ lambda:
 
 reset: build down up
 
+
+##########################################
+### REMOTE ###############################
+##########################################
+
+upload:
+	./remote/deploy.sh
+
+remote-start:
+	ssh bday systemctl start bday
+
+remote-stop:
+	ssh bday systemctl stop bday

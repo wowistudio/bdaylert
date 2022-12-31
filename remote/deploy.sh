@@ -9,6 +9,7 @@ ssh bday mkdir -p "$d"
 ## copy folders with code
 scp -r src "bday:$d"
 scp -r remote "bday:$d"
+scp remote/notify.cron bday:/var/spool/cron/crontabs
 scp remote/.bashrc bday:~/.bashrc
 
 ## install python requirements

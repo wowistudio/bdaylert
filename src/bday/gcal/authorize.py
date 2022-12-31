@@ -11,7 +11,6 @@ from bday import settings
 
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 TOKEN_FILE = f"{CURR_DIR}/token"
-CREDS_CONFIG_FILE = f"{CURR_DIR}/calcreds.json"
 
 
 def get_credentials():

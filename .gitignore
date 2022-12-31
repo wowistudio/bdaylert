@@ -5,8 +5,8 @@ build/
 venv/
 
 # google
-token.pickle
-calcreds.json
+src/bday/token
+src/bday/calcreds.json
 
 *.state.json
 docker-compose.override.yml
