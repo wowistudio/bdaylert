@@ -45,6 +45,9 @@ lambda:
 
 reset: build down up
 
+google-token:
+	./local/get_gcal_creds.sh
+
 
 ##########################################
 ### REMOTE ###############################

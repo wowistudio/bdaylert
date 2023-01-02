@@ -3,6 +3,7 @@ build/
 *.pyc
 .idea
 venv/
+.DS_Store
 
 # google
 src/bday/token
