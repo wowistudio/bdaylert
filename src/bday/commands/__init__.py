@@ -2,7 +2,7 @@ import dataclasses
 import socket
 
 from bday.telegram import Telegram
-from bday.gcal import CalendarClient, AddEventArgs
+from bday.gcal import CalendarClient, AddEventArgs, RefreshError
 from bday.notify import handle_notify
 
 HELP = """
@@ -55,8 +55,11 @@ class Upcoming(Command):
     client = CalendarClient()
 
     def call(self):
-        events = [event.for_telegram for event in self.client.upcoming()]
-        self.telegram.send("\n".join(events))
+        try:
+            events = [event.for_telegram for event in self.client.upcoming()]
+            self.telegram.send("\n".join(events))
+        except RefreshError:
+            self.telegram.send("Token expired")
 
 
 class DryRun(Command):
@@ -75,6 +78,7 @@ class Add(Command):
             event_args = AddEventArgs(self.args)
             self.client.add_event(*event_args)
             self.telegram.send(event_args.telegram_success_msg())
+        except RefreshError:
+            self.telegram.send("Token expired")
         except Exception as e:
-            print("ERROR", e)
             self.telegram.send("Wrong payload. Send like: /add [month]/[day] [age] [name]")

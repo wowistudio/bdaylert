@@ -56,5 +56,4 @@ class ValueState(dict):
         return f"{self.name}: <pre>{json.dumps(self._state)}</pre>"
 
 
-past = ValueState("past", file="past.state.json")
 offset = ValueState("offset", file="offset.state.json")

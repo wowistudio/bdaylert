@@ -1,3 +1,5 @@
-### Google OAuth Creds
+### BDAYLERT
 
-https://developers.google.com/identity/protocols/oauth2/web-server#python
+Problem: Birthdays, I always forget them.
+
+The app notifies me on Telegram for upcoming birthdays.

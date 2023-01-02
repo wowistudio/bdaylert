@@ -2,6 +2,7 @@ import re
 import json
 from datetime import datetime, timedelta
 from googleapiclient.discovery import build
+from google.auth.exceptions import RefreshError
 
 from bday import settings
 from bday.gcal.authorize import authorize
