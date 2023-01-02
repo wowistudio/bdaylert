@@ -6,8 +6,8 @@ venv/
 .DS_Store
 
 # google
-src/bday/token
-src/bday/calcreds.json
+token
+oauth_creds.py
 
 *.state.json
 docker-compose.override.yml
