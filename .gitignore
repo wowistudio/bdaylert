@@ -4,6 +4,7 @@ build/
 .idea
 venv/
 .DS_Store
+.env
 
 # google
 token
